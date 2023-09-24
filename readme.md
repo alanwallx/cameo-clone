@@ -2,16 +2,19 @@ Readme
 --------------------------------------
 Summary:
 --------------------------------------
-Note: see 5 min overview: youtube.com/video/eXJo62teBFc 
+Note: see 5 min overview: https://youtube.com/video/eXJo62teBFc
+This project was created as part of the Verified CS50 Web Development  course with Harvard/EdX. The requirements are here https://cs50.harvard.edu/web/2020/projects/final/capstone/ but basically the project requires designing and implementing a distinct and complex web application using Python and JavaScript, utilizing Django on the backend, and ensuring it is mobile-responsive, with a comprehensive README.md file that justifies the project's distinctiveness and complexity, explains file contents, provides instructions for running the application, and includes any necessary Python packages in a requirements.txt file, with the design and aesthetics of the website being open to individual creativity.
+
+Original Readme follows explaining the project:
 
 The project satisfies the distinctiveness and complexity requirements:
-The project allows the user to request a short video from their favourite TV, sports or movie star saying hello or birthday greetings to them or someone the user nominates. The user can sign up, pick their preferred star, send a request to the star. Once the star has uploaded the video the user is emailed to tell then that the video is ready and they can link to it or download it. Each user has an profile page where they can view all their closed and pending orders with links to videos where applicable. 
+The project allows the user to request a short video from their favourite TV, sports or movie star saying hello or birthday greetings to them or someone the user nominates. The user can sign up, pick their preferred star, send a request to the star. Once the star has uploaded the video the user is emailed to tell then that the video is ready and they can link to it or download it. Each user has an profile page where they can view all their closed and pending orders with links to videos where applicable.
 
 Meanwhile someone who is considered a star can set up one or more "Star Profiles" and apply to be listed on the site. If they are listed, they get an email saying that there is a request for them to consider and respond to. Stars have a profile page where they can see all pending and closed requests, and offers a solution for them to upload the video. Why would you have two star profiles? If you are a singer you would have one star profile, using your real name, whereas if you were for example a comedian with several characters, for example Sasha Baron Cohen has Ali-G and Borat, so he can set up two star profiles to cater to different audiences.
 
-There is also an admin area where administrators can consider the star's application and approve, reject, query or ban the star profile application, depending on the merits of the star. 
+There is also an admin area where administrators can consider the star's application and approve, reject, query or ban the star profile application, depending on the merits of the star.
 
-I felt the project was sufficiently complex for CS50 at this stage, so I have not implemented a payment system at this point. 
+I felt the project was sufficiently complex for CS50 at this stage, so I have not implemented a payment system at this point.
 
 --------------------------------------
 Detailed description of the project:
@@ -25,12 +28,12 @@ Administrator
 --Typical scenario--
 
 User browses and registers:
-Once the project is running, a user, Frank, as an unknow user arrives at the site. Frank can see all the stars on the home page and the price to book each star. He can hide a star he's not interested in by clicking hide on any star.  This satisfies the javascript requirement. Frank clicks on a star and looks at thier profile. He then decides to sign up. he clicks 'Sign Up' and enters his details. An account is created and he is invited to log in. Frank logs in with his new username and password and then is able to browse the board as a logged in user. 
+Once the project is running, a user, Frank, as an unknow user arrives at the site. Frank can see all the stars on the home page and the price to book each star. He can hide a star he's not interested in by clicking hide on any star.  This satisfies the javascript requirement. Frank clicks on a star and looks at thier profile. He then decides to sign up. he clicks 'Sign Up' and enters his details. An account is created and he is invited to log in. Frank logs in with his new username and password and then is able to browse the board as a logged in user.
 
 User books a video:
-Frank clicks on a star and views the star profile. He wants to book musician Lisa Hannigan to say hello to his friend who is a big fan of Lisa Hannigan. He fills out the form and tells Lisa that his friend's 30th birthday is coming up and that he is a big fan of Lisa. He then submits the order. A payment system could be built in at this stage but it was not necessary for the purposes of fulfilling the requirements of the project. 
+Frank clicks on a star and views the star profile. He wants to book musician Lisa Hannigan to say hello to his friend who is a big fan of Lisa Hannigan. He fills out the form and tells Lisa that his friend's 30th birthday is coming up and that he is a big fan of Lisa. He then submits the order. A payment system could be built in at this stage but it was not necessary for the purposes of fulfilling the requirements of the project.
 
-The form is validated and if all fields are ok then Frank gets a confirmation message telling him the booking has been made and that he can expect an email or can keep track of his orders via his dashboard. 
+The form is validated and if all fields are ok then Frank gets a confirmation message telling him the booking has been made and that he can expect an email or can keep track of his orders via his dashboard.
 
 Star receives the booking:
 Lisa gets an email telling her that someone has booked a video. She logs into he dashboard and reads the request. When she is ready Lisa takes a video of herself and uploads it on the relevant page of her dashboard.
@@ -52,13 +55,13 @@ Declined = an application that has been declined by the admin because it does no
 Resubmitted after being declined = this application will give the applicant one last attempt to persuade the administrator to admit them to the site.
 Approved = application that has been approved to go live on the website.  
 
-Adam clicks through to the star profile and sees that Frank has not filled out enough information about why he should be considered, namely he has not included his follower numbers. Adam changes the status to Returned and adds a note to Frank asking him to resubmit with the follower numbers for his social media channels. 
+Adam clicks through to the star profile and sees that Frank has not filled out enough information about why he should be considered, namely he has not included his follower numbers. Adam changes the status to Returned and adds a note to Frank asking him to resubmit with the follower numbers for his social media channels.
 
 User resubmits the application:
-Frank gets an email saying the application needs attention and he logs in and views the application. The status is noe "Returned". Upon clicking through he can see the message from the administrator and proceeds to add the relevant detail before submitting again. 
+Frank gets an email saying the application needs attention and he logs in and views the application. The status is noe "Returned". Upon clicking through he can see the message from the administrator and proceeds to add the relevant detail before submitting again.
 
 Admin approves an application:
-Adam, viewing his dashboard, sees that Frank's application has been resubmitted. Adam is happy with the applicaton now and he changes the status to Approved. This immediately puts Frank's profile on the home page and it is available to be booked by other users. Frank gets an email notifying him that the applicaiton has been approved. 
+Adam, viewing his dashboard, sees that Frank's application has been resubmitted. Adam is happy with the applicaton now and he changes the status to Approved. This immediately puts Frank's profile on the home page and it is available to be booked by other users. Frank gets an email notifying him that the applicaiton has been approved.
 
 --------------------------------------
 What’s contained in each file
@@ -81,7 +84,7 @@ stars/static/css/styley.css:
 contains all the CSS styles for the application. I am also using Bootstrap
 
 stars/static/js/js.js
-contains all the Javascript for the application. 
+contains all the Javascript for the application.
 • There is a function to copy the URL for the video
 • There is a function to ignore a star from the home page
 I also use jQuery in the project
@@ -102,7 +105,7 @@ stars/templates/stars/admindashboard.html:
 This page allows the admins to get an overview of all the star profiles, see the status of star profiles and click through to a starprofile that needs attention
 
 stars/templates/stars/create.html:
-This page allows a star to create a star profile. I use crispy forms to create the forms without having to write custom form templates. The star must pick a unique username which is compared to the database to see if it's unique. 
+This page allows a star to create a star profile. I use crispy forms to create the forms without having to write custom form templates. The star must pick a unique username which is compared to the database to see if it's unique.
 
 stars/templates/stars/edit.html:
 This page allows stars to edit a star profile. It also tells them the reason for any recent change to their profile status
@@ -123,10 +126,10 @@ stars/templates/stars/stardashboard.html:
 This page shows a star all their star profiles, the status of their profiles, their video requests and the status of their video requests.
 
 stars/templates/stars/starpage.html:
-This is the individual star profile that the customer sees, and it encourages them to book this star. It allows them to book the star and is reused as the confirmation page when a star is booked. 
+This is the individual star profile that the customer sees, and it encourages them to book this star. It allows them to book the star and is reused as the confirmation page when a star is booked.
 
 stars/templates/stars/upload.html:
-This page enables a star to upload their video to complete the order. The customer is notified that the video has gone up. 
+This page enables a star to upload their video to complete the order. The customer is notified that the video has gone up.
 
 stars/templates/users/login.html:
 A simple login page allowing the user to sign in to their account
@@ -142,7 +145,7 @@ This page contains all the models for the database:
 • Video containe the name of the video and the location of the video
 • Photo contains the title of the photo and the location of the photo
 • Star contains the name, price, occution, owner, username, image, application letter, status (as a list of choices) and the reason for status change (for admin use).
-• Order contains price, customer, star booked, whether the order is completed, the custom message, the recipient, and who the message is from (in case it's not the customer). 
+• Order contains price, customer, star booked, whether the order is completed, the custom message, the recipient, and who the message is from (in case it's not the customer).
 • Ignored contains the stars that are being ignored by a customer
 
 stars/urls.py:
@@ -180,7 +183,7 @@ Next we handle our application logic:
 --------------------------------------
 How to run the application
 --------------------------------------
-Install Django and the dependencies in the requirements.txt file. Once you run the application you should be able to browse the stars and create a new profile, where you can then contact a star to request a video message. 
+Install Django and the dependencies in the requirements.txt file. Once you run the application you should be able to browse the stars and create a new profile, where you can then contact a star to request a video message.
 If the database is included, some useful usernames and passwords:
 
 Sacha (star owner)
