@@ -3,6 +3,7 @@ Readme
 Summary:
 --------------------------------------
 Note: see 5 min overview: https://youtube.com/video/eXJo62teBFc
+
 This project was created as part of the Verified CS50 Web Development  course with Harvard/EdX. The requirements are here https://cs50.harvard.edu/web/2020/projects/final/capstone/ but basically the project requires designing and implementing a distinct and complex web application using Python and JavaScript, utilizing Django on the backend, and ensuring it is mobile-responsive, with a comprehensive README.md file that justifies the project's distinctiveness and complexity, explains file contents, provides instructions for running the application, and includes any necessary Python packages in a requirements.txt file, with the design and aesthetics of the website being open to individual creativity.
 
 Original Readme follows explaining the project:
