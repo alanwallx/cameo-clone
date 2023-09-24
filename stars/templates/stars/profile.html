@@ -1,0 +1,27 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+{{ star.firstname }} {{ star.lastname }} Profile
+{% endblock %}
+{% block body %}
+
+<div class="card" style="width:28rem">
+  <img src="{{ star.cover.url }}" class="card-img-top"  style="max-height: 300px" alt="{{ star.firstname }} {{ star.lastname }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ star.firstname }} {{ star.lastname }}</h5>
+    <div class="alert alert-success" role="alert">
+      {{message}}
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price per video: &euro;{{star.price}}</li>
+    <li class="list-group-item">Occupation: {{star.occupation}}</li>
+    <li class="list-group-item">Owner: {{star.owner}}</li>
+    <li class="list-group-item">Username: {{star.username}}</li>
+    <li class="list-group-item">Owner: {{star.owner}}</li>
+    <li class="list-group-item">Status: {{star.status}}</li>
+    <li class="list-group-item">Application:<br> {{star.application_letter}}</li>
+    {% if star.reason_for_status_change %}<li class="list-group-item">Update to application: {{star.reason_for_status_change}}</li>{% endif %}
+  </ul>
+
+</div>
+{% endblock %}

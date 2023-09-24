@@ -1,0 +1,113 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+Admin Dashboard
+{% endblock %}
+{% block body %}
+<h2>Admin Dashboard</h2>
+<p>The following profiles need to be approved or declined, depending on their merits. You can also return the form with feedback if you need more information. </p>
+<table class="table">
+  <thead>
+
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Status</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    {% for star in pending %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href=""><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-primary" data-toggle="tooltip" data-placement="top" title="To be approved or declined, depending on their merits">Pending</span></a></td>
+    </tr>
+    {% endfor %}
+    {% for star in returned %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-success" data-toggle="tooltip" data-placement="top" title="Sent back to the owner with additional feedback from us">Returned</span></a></td>
+    </tr>
+    {% endfor %}
+    {% for star in resubmitted %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="Resubmitted by the owner in response to our feedback">Resubmitted</span></a></td>
+    </tr>
+    {% endfor %}
+    {% for star in suspended %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-dark" data-toggle="tooltip" data-placement="top" title="Account suspended for breach of terms or other reasons">Suspended</span></a></td>
+    </tr>
+    {% endfor %}
+    {% for star in resubsuspended %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-warning" data-toggle="tooltip" data-placement="top" title="Awaiting approval after being resubmitted after a suspension">Resubmitted after suspension</span></a></td>
+    </tr>
+    {% endfor %}
+    {% for star in declined %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Profiles that do not meet our criteria">Declined</span></a></td>
+    </tr>
+    {% endfor %}
+    {% for star in resubdeclined %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-danger" data-toggle="tooltip" data-placement="top" title="Profiles awaiting approval or decline.">Resubmitted after being declined</span></a></td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+<p>The following profiles are approved, from here you can suspend or otherwise chance the status of a star profile. The owner will be notified. </p>
+<table class="table">
+  <thead>
+
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Status</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    {% for star in approved %}
+    <tr>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.firstname}}</strong></a></td>
+      <td><a href="/staradmin/{{star.pk}}"><strong>{{star.lastname}}</strong></a></td>
+      <td>{{star.occupation}}</td>
+      <td>{{star.owner}}</td>
+      <td><a href="/staradmin/{{star.pk}}"><span class="badge badge-pill badge-success" data-toggle="tooltip" data-placement="top" title="Approved">Approved</span></a></td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table
+{% endblock %}

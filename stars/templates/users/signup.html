@@ -1,0 +1,26 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+    Sign Up
+{% endblock %}
+{% block body %}
+{% if message %}
+    <div class="alert alert-warning" role="alert">
+        {{ message }}
+    </div>
+{% endif %}
+<form action="{% url 'signup' %}" method="post" class="form-signin">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+    <label for="firstname" class="sr-only">First Name</label>
+    <input type="test" name="first_name" id="firstname" class="form-control" placeholder="First Name" required autofocus>
+    <label for="lastname" class="sr-only">Last Name</label>
+    <input type="test" name="last_name" id="lastname" class="form-control" placeholder="Last Name" required>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+    <label for="username" class="sr-only">Username</label>
+    <input type="test" name="username" id="username" class="form-control" placeholder="Username" required>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign Up</button>
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+Star Dashboard
+{% endblock %}
+{% block body %}
+<h2>Star Dashboard</h2>
+{% if owned_stars %}
+  <p>You control {{number_of_stars}} star profile(s). <a class="small" href="{% url 'starcreate' %}">Add another</a>
+
+  {% for star in owned_stars %}
+    <p><img class="img-thumbnail thumb mr-3" src="{{ star.cover.url }}" alt="{{ star.firstname }} {{ star.lastname }}" ><a href="/staredit/{{star.id}}">{{star.firstname}} {{star.lastname}}</a> <span class="small">Status: {{star.status}}</span></p>
+  {% endfor %}
+
+  <h3>Video Requests</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Star Requested</th>
+        <th scope="col">To</th>
+        <th scope="col">From</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for star in owned_stars %}
+      {% for request in owned_star_requests %}
+          {% for specific in request %}
+            <tr>
+              <th scope="row">
+                {{specific.id}}
+                {% if specific.completed%}
+                    <span class="badge badge-success">Completed</span>
+                {% else %}
+                    <span class="badge badge-warning">Pending</span>
+                {% endif %}
+                </th>
+              <td>{{specific.starbooked.firstname}} {{specific.starbooked.lastname}}</td>
+              <td>{{specific.recipient}}</td>
+              <td>{{specific.messagefrom}}</td>
+              <td><a href="/stars/upload/{{specific.id}}" title="{{specific.custommessage}}" class="order order-completed-{{specific.completed}}">{{specific.custommessage}}</a></td>
+            </tr>
+        {% endfor %}
+      {% endfor %}
+  {% endfor %}
+    </tbody>
+  </table>
+
+
+  <p>If you play several characters you can <a href="{% url 'starcreate' %}">set up a new star profile here</a>.</p>
+{% else %}
+<p>If you manage any star profiles, you can see your video requests here.</p>
+<h3>Apply to join Instarvid</h3>
+<p>If you have fans and want to join Instarvid as talent, <a href="{% url 'starcreate' %}">you can enroll here</a> and we'll be in touch.</p>
+{% endif %}
+{% endblock %}

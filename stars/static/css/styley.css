@@ -1,0 +1,141 @@
+.navbar{
+    margin-bottom: 40px;
+}
+
+.photo {
+height: 300px;
+}
+.photo img, .card-img-top {
+object-fit: cover;
+height: 100%;
+}
+.card-deck{
+  margin-top:50px;
+
+}
+.card{
+ min-width: 170px;
+   margin-bottom:40px;
+}
+/* Copy URL to clipboard*/
+.isv-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.isv-tooltip .isv-tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.isv-tooltip .isv-tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.isv-tooltip:hover .isv-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+#videoURL{
+  width: 90%;
+  border: 0;
+  background-color: transparent;
+}
+
+h2{
+  margin: 50px 0 30px 0;
+}
+h3{
+  margin: 30px 0 20px 0;
+}
+.center{
+  text-align:center;
+}
+
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.narrowpage{
+/*  max-width:400px;
+  margin: 0 auto;
+  display:block;*/
+}
+
+
+img.starpage{
+  width: 300px;
+  /*
+  display: block;
+  float: left;
+  margin-top: 60px;
+  */
+  margin-right:60px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+
+.speech {
+  position: relative;
+  font-family: arial;
+  font-size: 1.1em;
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  max-width: 400px;
+}
+
+.left::after {
+  content: '';
+  border: 20px solid transparent;
+  border-right-color: #000;
+  border-left: 0;
+  position: absolute;
+  left: -20px;
+  top: 30%;
+  margin-top: -20px;
+}
+
+
+.thumb{
+  max-width:100px;
+  max-height:60px;
+}
+
+
+
+.hide  {
+  border: 0;
+  background-color: white;
+  font-size: .8rem;
+  color: gray;
+}
+.hide:hover{
+  background-color:grey;
+  color:black;
+}

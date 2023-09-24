@@ -1,0 +1,38 @@
+{% extends "stars/layout.html" %}
+{% load static %}
+{% block title %}
+All stars
+{% endblock %}
+{% block body %}
+
+<h2 class="center">Give the gift of a personalised greeting from a favourite star!</h2>
+<p class="center">It's so easy! Just select a star, tell them what kind of message you would like and they will send back a customised video! </p>
+
+<div class="card-deck">
+          {% for star in stars %}
+
+  <div class="card" id="{{ star.pk }}">
+    <div class="photo">
+      <a href="/star/{{star.username}}" title="{{ star.firstname }} {{star.lastname}}">
+        <img class="card-img-top" src="{{ star.cover.url }}" alt="Card image cap">
+      </a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><a href="/star/{{star.username}}" title="{{ star.firstname }} {{star.lastname}}">{{ star.firstname }} {{star.lastname}}</a></h5>
+      <p class="card-text">{{ star.occupation }}
+        {% if user.is_staff %}
+        <br /><i>PK: <strong>{{ star.pk }}</strong></i>
+        {% endif %}
+
+      </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><a href="/star/{{star.username}}" title="{{ star.firstname }} {{star.lastname}}">€{{star.price}}</a></small>
+    </div>
+    <button class="hide">Hide</button>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

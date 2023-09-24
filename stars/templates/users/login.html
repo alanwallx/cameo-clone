@@ -1,0 +1,32 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+    Log in
+{% endblock %}
+{% block body %}
+<div class="narrowpage">
+ <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+{% if warning %}
+    <div class="alert alert-warning" role="alert">
+    {{ warning }}
+    </div>
+{% endif %}
+{% if success %}
+    <div class="alert alert-success" role="alert">
+    {{ success }}
+    </div>
+{% endif %}
+    <form action="{% url 'login' %}" method="post"  class="form-signin">
+    {% csrf_token %}
+    <input name="username" type="text" class="form-control" placeholder="Username" required autofocus />
+    <input name="password" type="password" class="form-control" placeholder="Password" required />
+    <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block" />
+Not registered? <a href="{% url 'signup' %}">Sign up</a>
+</div>
+
+
+
+
+
+
+</form>
+{% endblock %}

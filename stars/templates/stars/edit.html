@@ -1,0 +1,27 @@
+{% extends "stars/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Edit a Star Profile
+{% endblock %}
+{% block body %}
+<h2>Edit a Star Profile</h2>
+{{message}}
+<p>Status: {{status}}</p>
+
+{% if reason_for_status_change %}
+<div class="alert alert-warning" role="alert">
+  Reason for status change: <b>{{reason_for_status_change}}</b>
+</div>
+
+{% endif %}
+<img src="{{ star.cover.url }}" class="card-img-top"  style="max-height: 500px;max-width:300px;" alt="{{ star.firstname }} {{ star.lastname }}">
+
+<form action="{% url 'staredit' pk=form.instance.pk %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+
+{{message}}
+{% endblock %}

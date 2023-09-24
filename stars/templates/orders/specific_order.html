@@ -1,0 +1,46 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+My Orders
+{% endblock %}
+{% block body %}
+{% if videofile != "" %}
+    <h1>Your video is ready!</h1>
+    <video width='400' controls>
+      <source src='{{ MEDIA_URL }}{{ videofile }}' type='video/mp4'>
+        Your browser does not support the video tag.
+    </video>
+    <div class="alert alert-primary" role="alert">
+  URL: <input type="text" value="http://127.0.0.1:8000{{ MEDIA_URL }}{{ videofile }}" id="videoURL" style="display:inline-block">
+</div>
+
+
+    <div class="isv-tooltip">
+    <button type="button" class="btn btn-success" onclick="copyText()" onmouseout="isv-outFunc()">
+      <span class="isv-tooltiptext" id="isvTooltip">Copy URL to clipboard</span>
+      Copy URL
+      </button>
+    </div>
+      <a type="button" href="{{ MEDIA_URL }}{{ videofile }}" class="btn btn-outline-info">Download Video</a>
+{% else %}
+      <div class="alert alert-info" role="alert">
+        {{star.firstname}} {{star.lastname}} is preparing your video. We will email you when it's ready.
+      </div>
+
+
+{%endif%}
+<div class="d-flex justify-content-between flex-wrap  mt-4">
+  <img class="starpage flex-fill" src="{{ star.cover.url }}" alt="{{ star.firstname }} {{ star.lastname }}" >
+
+  <div class="speech left flex-fill">
+    <h3>Details of this video</h3>
+    <p>A video from <b>{{star.firstname}} {{star.lastname}}</b></p>
+    <p>To {{recipient}} from {{messagefrom}} with the following message:</p>
+    <p><i>{{custommessage}}</i></p>
+    <p class="small">Order ID: {{order_id}}</p>
+  </div>
+</div>
+
+
+<!-- The text field -->
+
+{% endblock %}

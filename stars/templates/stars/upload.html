@@ -1,0 +1,30 @@
+{% extends "stars/layout.html" %}
+{% load static %}
+{% block title %}
+Upload video
+{% endblock %}
+{% block body %}
+
+  <h2>Uploading video for Order ID {{order_id}}</h2>
+  <p>From <b>{{messagefrom}}</b> to <b>{{recipient}}</b> with the following message:</p>
+  <p><i>{{custommessage}}</i></p>
+<hr></hr>
+  {% if form != "" %}
+    <form class="bootstrap-form" enctype="multipart/form-data" method="POST" action="">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class="btn btn-primary" type="submit" value="Upload"/>
+    </form>
+  {% endif %}
+  {% if videofile != "" %}
+  <br><br>
+  <p>You have uploaded this video:</p>
+  <video width='400' controls>
+    <source src='{{ MEDIA_URL }}{{ videofile }}' type='video/mp4'>
+      Your browser does not support the video tag.
+  </video>
+
+  {%endif%}
+
+
+  {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "stars/layout.html" %}
+{% block title %}
+My Orders
+{% endblock %}
+{% block body %}
+<h1>My Orders</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Star</th>
+        <th scope="col">To:</th>
+        <th scope="col">From:</th>
+        <th scope="col">Message:</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for order in orders_placed reversed %}
+      <tr>
+        <th scope="row">
+          {% if order.completed %}
+          <span class="badge badge-success">Completed!</span>
+          {% else %}
+          <span class="badge badge-info">Pending</span>
+          {% endif %}
+          <a href="/order/{{order.id}}">{{order.starbooked.firstname}} {{order.starbooked.lastname}}</a>
+
+
+        </th>
+        <td>{{order.recipient}}</td>
+        <td>{{order.messagefrom}}</td>
+        <td>{{order.custommessage}}</td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

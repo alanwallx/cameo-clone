@@ -1,0 +1,30 @@
+{% extends "stars/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Create a Star Profile
+{% endblock %}
+{% block body %}
+<h2>Create a Star Profile</h2>
+
+{% if warning %}
+<div class="alert alert-warning" role="alert">
+  {{warning}}
+</div>
+{% endif %}
+
+{% if success %}
+<div class="alert alert-success" role="alert">
+  {{success}}
+</div>
+{% endif %}
+
+{% if not success %}
+<form action="/starcreate" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+{% endif %}
+
+{% endblock %}

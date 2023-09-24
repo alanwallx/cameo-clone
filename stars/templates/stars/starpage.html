@@ -1,0 +1,39 @@
+{% extends "stars/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{ star.firstname }} {{ star.lastname }}
+{% endblock %}
+{% block body %}
+
+{% if submitted != True %}
+<div class="d-flex justify-content-between">
+  <img class="starpage flex-fill" src="{{ star.cover.url }}" alt="{{ star.firstname }} {{ star.lastname }}" >
+  <p class="speech left flex-fill">It's so easy to create an order! Just tell me who to talk to, who the message is from, and give me the specifics of your request, for example, "Tell my girl Lucy congrats on getting married to Tom."</p>
+</div>
+
+  <h2>Book {{ star.firstname }} {{ star.lastname }} now!</h2>
+  {% if customer != "" %}
+    <form action="{% url 'order' %}" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Submit Order" class="btn btn-success">
+      </form>
+  {% else %}
+    <p>Please <a href="{% url 'login' %}">Log In</a> or <a href="{% url 'signup' %}">Sign Up</a> to book this star</p>
+  {% endif %}
+{% else %}
+<img class="starpage" src="{{ star.cover.url }}" alt="{{ star.firstname }} {{ star.lastname }}" >
+
+  <div class="alert alert-success mt-4" role="alert">
+  You have booked {{ star.firstname }} {{ star.lastname }}!
+</div>
+<h3>What happens next?</h3>
+  <p>We will notify {{ star.firstname }} {{ star.lastname }} of your request and we'll notify you via email when they send through the video. Keep track of <a href="/order/{{ order_id }}">this order here</a> or <a href="/orders">view all your orders</a> on your orders page. </p>
+
+{% endif %}
+
+
+
+
+{% endblock %}
