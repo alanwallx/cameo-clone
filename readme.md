@@ -2,6 +2,8 @@ Readme
 --------------------------------------
 Summary:
 --------------------------------------
+Note: see 5 min overview: videoinstarvid-runthrough-01.webm 
+
 The project satisfies the distinctiveness and complexity requirements:
 The project allows the user to request a short video from their favourite TV, sports or movie star saying hello or birthday greetings to them or someone the user nominates. The user can sign up, pick their preferred star, send a request to the star. Once the star has uploaded the video the user is emailed to tell then that the video is ready and they can link to it or download it. Each user has an profile page where they can view all their closed and pending orders with links to videos where applicable. 
 
